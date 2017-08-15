@@ -1,0 +1,14 @@
+[package]
+name = "cervus_bridge"
+version = "0.1.0"
+authors = ["losfair <zhy20000919@hotmail.com>"]
+description = "Bridge to C for the Cervus Engine"
+license = "LGPL-3.0"
+repository = "https://github.com/losfair/cervus_bridge"
+
+[lib]
+name = "cervus_bridge"
+crate-type = ["cdylib"]
+
+[dependencies]
+cervus = "0.3"
