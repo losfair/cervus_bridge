@@ -48,12 +48,14 @@ pub extern "C" fn cervus_ffi_build_caller_with_context(
     Box::into_raw(caller)
 }
 
+#[no_mangle]
 pub unsafe extern "C" fn cervus_ffi_destroy_caller(
     caller: *mut Caller
 ) {
     Box::from_raw(caller);
 }
 
+#[no_mangle]
 pub unsafe extern "C" fn cervus_ffi_get_callable(
     caller: &Caller
 ) -> *const c_void {
@@ -73,6 +75,7 @@ fn parse_value_type(t: &str) -> Option<cervus::value_type::ValueType> {
         "i64" => Some(Int64),
         "f64" => Some(Float64),
         "pointer" => Some(Pointer(Box::new(Void))),
+        "void" => Some(Void),
         _ => None
     }
 }
